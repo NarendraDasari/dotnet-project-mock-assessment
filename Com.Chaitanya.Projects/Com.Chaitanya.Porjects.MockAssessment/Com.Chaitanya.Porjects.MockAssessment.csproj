@@ -7,4 +7,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Com.Chaitanya.Data.Repository\Com.Chaitanya.Data.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Com.Chaitanya.Models">
+      <HintPath>..\Dependencies\Com.Chaitanya.Models.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

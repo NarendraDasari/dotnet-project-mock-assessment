@@ -1,4 +1,8 @@
-﻿namespace Com.Chaitanya.Porjects.MockAssessment
+﻿
+using Com.Chaitanya.Data.Repository;
+using Com.Chaitanya.Models;
+
+namespace Com.Chaitanya.Porjects.MockAssessment
 {
     internal class Program
     {
@@ -11,7 +15,36 @@
             {
                 Console.WriteLine("Please wait while we retrive the question........");
 
-            }
+
+
+              QuestionRepository repo = new QuestionRepository();
+              List<Item> items=  repo.GetQuestions();
+
+                // get a random number with in range of 0 - 32
+                // retrive the question Item matching with the random number and store it in your question results object.
+                // get a random number again for iteration 2.
+                // check if the random number generated is existing with your copy  of results objects.
+
+                // If generated random number doesn't exist with your copy then , retrieve the question Id matching with the random number from items object.
+                // Copy the Item that was retreved into you results object.
+
+                // If the random number generated already exist with a question Id from your results object - then, generate a random number again. Repeate this process
+                // until a unique number that doesn't match with the question Id from the result object.
+
+
+
+    
+    
+                // modules - featues.
+                // Write a forloop to iterate 5 items to get 5 unique random numbers.
+                // write a method to match a number and retriev the Item Object.
+                // Save the unique questions items into an array or List Object.
+
+                // print the unique question result Object.
+
+
+
+                }
         }
     }
 }
