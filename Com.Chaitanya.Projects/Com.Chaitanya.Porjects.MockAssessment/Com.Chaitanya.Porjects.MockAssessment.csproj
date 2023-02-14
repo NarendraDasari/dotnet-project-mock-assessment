@@ -15,6 +15,9 @@
     <Reference Include="Com.Chaitanya.Models">
       <HintPath>..\Dependencies\Com.Chaitanya.Models.dll</HintPath>
     </Reference>
+    <Reference Include="Com.Chaitanya.Utils">
+      <HintPath>..\Dependencies\Com.Chaitanya.Utils.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

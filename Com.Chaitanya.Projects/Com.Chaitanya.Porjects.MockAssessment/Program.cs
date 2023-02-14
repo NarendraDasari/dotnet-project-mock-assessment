@@ -1,6 +1,7 @@
 ﻿
 using Com.Chaitanya.Data.Repository;
 using Com.Chaitanya.Models;
+using Com.Chaitanya.Utils;
 
 namespace Com.Chaitanya.Porjects.MockAssessment
 {
@@ -41,6 +42,24 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                 // Save the unique questions items into an array or List Object.
 
                 // print the unique question result Object.
+
+                for(int i=0 ;i<10 ;i++)
+                {
+                    int noofquest = items.Count;
+                    RandomNumberManager number = new RandomNumberManager();
+                    int randnum=number.GetNumber(1,items.Count);
+
+                    
+                    
+                    
+
+
+                    
+
+
+
+
+                }
 
 
 
