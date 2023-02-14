@@ -34,32 +34,50 @@ namespace Com.Chaitanya.Porjects.MockAssessment
 
 
 
-    
-    
+
+
                 // modules - featues.
                 // Write a forloop to iterate 5 items to get 5 unique random numbers.
                 // write a method to match a number and retriev the Item Object.
                 // Save the unique questions items into an array or List Object.
 
                 // print the unique question result Object.
+                int[] save = new int[5];
 
-                for(int i=0 ;i<10 ;i++)
+                for (int i = 0; i < 5; i++)
                 {
                     int noofquest = items.Count;
                     RandomNumberManager number = new RandomNumberManager();
-                    int randnum=number.GetNumber(1,items.Count);
-
+                    int randnum = number.GetNumber(1, items.Count);
                     
-                    
-                    
+                    save[i]= randnum;
+                    //for (int z = 0; z < save.Length; z++)
+                    //{
+                    //    save[z]= randnum;
 
-
-                    
-
-
-
-
+                    //}
+                             
+                
                 }
+
+                //  at this point of a time save[] have the question id's we need to filter from items list.
+
+                int num = 20;
+
+                for(int z = 0; z < save.Length;z++)
+                {
+                    if (save[z]==num)
+                    {
+                        Console.WriteLine("found item");
+                        break;
+                    }
+                }
+
+
+
+
+
+
 
 
 
