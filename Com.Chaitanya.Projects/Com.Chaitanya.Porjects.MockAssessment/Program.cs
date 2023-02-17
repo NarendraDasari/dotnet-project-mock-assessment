@@ -18,7 +18,7 @@ namespace Com.Chaitanya.Porjects.MockAssessment
             string choice = Console.ReadLine();
             if (choice.ToLower() == "y" || choice.ToLower() == "yes")
             {
-                Console.WriteLine("Please wait while we retrive the question........");
+                //Console.WriteLine("Please wait while we retrive the question........");
 
 
 
@@ -51,8 +51,6 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                     RandomNumberManager number = new RandomNumberManager();
                     int randnum = number.GetNumber(1,itemList.Count);
                     
-                   
-
                     save[i] = randnum;
                     // int randnum = 10;
 
@@ -61,36 +59,41 @@ namespace Com.Chaitanya.Porjects.MockAssessment
 
 
 
-                //int num = 10;
-                //for(int z=0;z<save.Length;z++)
-                //{
-                //    if (save[z]==num)
-                //    {
-                //        Console.WriteLine("Found.item");
-                //    }
-                //}
+                int num = 10;
+
+
+
+                for (int z = 0; z < save.Length; z++)
+                {
+                    if (save[z] == num)
+                    {
+                        Console.WriteLine("Found.item");
+                    }
+                }
 
 
 
                 //  at this point of a time save[] have the question id's we need to filter from items list.
-                //int first = 10;
-                //int second = 33;
-                //int third = 26;
-                //int fourth = 15;
-                //int fifth = 7;
+                string first = "10";
+                string second = "33";
+                string third =" 26";
+                string fourth = "15";
+                 string fifth = "17";
+
+                Item obj;
 
 
-               
+                 getQuestionById("33" );
+                getQuestionById("10");
+                getQuestionById("26");
+                getQuestionById("15");
+                getQuestionById("17");
 
-                
-
-                getQuestionById("2" );
 
 
 
             }
         }
-
 
         private static void getQuestionById(string quesid)
         {
@@ -100,7 +103,7 @@ namespace Com.Chaitanya.Porjects.MockAssessment
 
                 Item obj = itemList[z];
 
-                if (obj.Id == z.ToString() )
+                if (obj.Id == quesid)
                 {
 
                     Console.WriteLine("Item found: {0}", obj.Name);
