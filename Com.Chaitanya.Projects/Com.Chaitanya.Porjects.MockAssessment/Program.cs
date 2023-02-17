@@ -59,19 +59,17 @@ namespace Com.Chaitanya.Porjects.MockAssessment
 
 
 
-                int num = 10;
+                //int num = 10;
 
 
 
-                for (int z = 0; z < save.Length; z++)
-                {
-                    if (save[z] == num)
-                    {
-                        Console.WriteLine("Found.item");
-                    }
-                }
-
-
+                //for (int z = 0; z < save.Length; z++)
+                //{
+                //    if (save[z] == num)
+                //    {
+                //        Console.WriteLine("Found.item");
+                //    }
+                //}
 
                 //  at this point of a time save[] have the question id's we need to filter from items list.
                 string first = "10";
@@ -80,17 +78,11 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                 string fourth = "15";
                  string fifth = "17";
 
-                Item obj;
-
-
                  getQuestionById("33" );
                 getQuestionById("10");
                 getQuestionById("26");
                 getQuestionById("15");
                 getQuestionById("17");
-
-
-
 
             }
         }
