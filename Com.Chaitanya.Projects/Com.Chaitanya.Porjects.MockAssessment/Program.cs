@@ -43,55 +43,32 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                 // Save the unique questions items into an array or List Object.
 
                 // print the unique question result Object.
-                int[] save = new int[5];
+                int[] save = new int[10];
 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     int noofquest = itemList.Count;
                     RandomNumberManager number = new RandomNumberManager();
                     int randnum = number.GetNumber(1,itemList.Count);
                     
                     save[i] = randnum;
-                    // int randnum = 10;
 
 
                 }
 
 
 
-                //int num = 10;
-
-
-
-                //for (int z = 0; z < save.Length; z++)
-                //{
-                //    if (save[z] == num)
-                //    {
-                //        Console.WriteLine("Found.item");
-                //    }
-                //}
-
-                //  at this point of a time save[] have the question id's we need to filter from items list.
-                //string first = save[0].ToString();
-                //string second = save[1].ToString();
-                //string third = save[2].ToString();
-                //string fourth = save[3].ToString();
-                // string fifth = save[4].ToString();
-
-                // getQuestionById(first );
-                //getQuestionById(second);
-                //getQuestionById(third);
-                //getQuestionById(fourth);
-                //getQuestionById(fifth);
+                // iterating the save array and called the question id which matches the array with questionid.
                 for( int p = 0; p < save.Length;p++)
                 {
-                    getQuestionById(save[p].ToString());
+                    int seqnum = p + 1;
+                    getQuestionById(save[p].ToString(),seqnum);
                 }
 
             }
         }
 
-        private static void getQuestionById(string quesid)
+        private static void getQuestionById(string quesid, int x)
         {
             for (int z = 0; z < itemList.Count; z++)
             {
@@ -102,7 +79,7 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                 if (obj.Id == quesid)
                 {
 
-                    Console.WriteLine("Item found: {0}", obj.Name);
+                    Console.WriteLine(x +"." + "{0}", obj.Name);
                     break;
                 }
             }
