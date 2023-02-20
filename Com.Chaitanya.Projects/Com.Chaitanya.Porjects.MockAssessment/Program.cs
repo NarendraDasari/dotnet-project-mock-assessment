@@ -43,9 +43,9 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                 // Save the unique questions items into an array or List Object.
 
                 // print the unique question result Object.
-                int[] save = new int[15];
+                int[] save = new int[5];
 
-                for (int i = 0; i <15; i++)
+                for (int i = 0; i <5; i++)
                 {
                     int noofquest = itemList.Count;
                     RandomNumberManager number = new RandomNumberManager();
@@ -70,14 +70,20 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                 for( int p = 0; p < save.Length;p++)
                 {
                     int seqnum = p + 1;
-                    getQuestionById(save[p].ToString(),seqnum);
+                    string s= getQuestionById(save[p].ToString());
+                    Console.WriteLine(seqnum +"." + s);
+
+
+
                 }
 
             }
         }
 
-        private static void getQuestionById(string quesid, int x)
+        private static string getQuestionById(string quesid)
         {
+
+            string questionText = "";
             for (int z = 0; z < itemList.Count; z++)
             {
 
@@ -86,11 +92,13 @@ namespace Com.Chaitanya.Porjects.MockAssessment
 
                 if (obj.Id == quesid)
                 {
-
-                    Console.WriteLine(x +"." + "{0}", obj.Name);
+                    questionText = obj.Name;
+                    //Console.WriteLine(x +"." + "{0}", obj.Name);
                     break;
                 }
             }
+
+            return questionText;
 
         }
       
