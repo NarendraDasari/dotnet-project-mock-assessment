@@ -72,17 +72,21 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                 //}
 
                 //  at this point of a time save[] have the question id's we need to filter from items list.
-                string first = "10";
-                string second = "33";
-                string third =" 26";
-                string fourth = "15";
-                 string fifth = "17";
+                //string first = save[0].ToString();
+                //string second = save[1].ToString();
+                //string third = save[2].ToString();
+                //string fourth = save[3].ToString();
+                // string fifth = save[4].ToString();
 
-                 getQuestionById("33" );
-                getQuestionById("10");
-                getQuestionById("26");
-                getQuestionById("15");
-                getQuestionById("17");
+                // getQuestionById(first );
+                //getQuestionById(second);
+                //getQuestionById(third);
+                //getQuestionById(fourth);
+                //getQuestionById(fifth);
+                for( int p = 0; p < save.Length;p++)
+                {
+                    getQuestionById(save[p].ToString());
+                }
 
             }
         }
