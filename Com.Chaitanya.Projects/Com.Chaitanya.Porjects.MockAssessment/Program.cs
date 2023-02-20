@@ -43,19 +43,27 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                 // Save the unique questions items into an array or List Object.
 
                 // print the unique question result Object.
-                int[] save = new int[10];
+                int[] save = new int[15];
 
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i <15; i++)
                 {
                     int noofquest = itemList.Count;
                     RandomNumberManager number = new RandomNumberManager();
                     int randnum = number.GetNumber(1,itemList.Count);
-                    
-                    save[i] = randnum;
+                    for (int q = 0; q < save.Length; q++)
+                    {
+                       if( save[q] != randnum)
+
+                        {
+                            save[i] = randnum;
+
+                        }
+                    }
+
 
 
                 }
-
+                
 
 
                 // iterating the save array and called the question id which matches the array with questionid.
