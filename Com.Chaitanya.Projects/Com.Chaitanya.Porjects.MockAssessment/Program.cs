@@ -44,21 +44,26 @@ namespace Com.Chaitanya.Porjects.MockAssessment
 
                 // print the unique question result Object.
                 int[] save = new int[5];
+                List<int> randomList = new List<int>();
+
 
                 for (int i = 0; i <5; i++)
                 {
                     int noofquest = itemList.Count;
                     RandomNumberManager number = new RandomNumberManager();
-                    int randnum = number.GetNumber(1,itemList.Count);
-                    for (int q = 0; q < save.Length; q++)
-                    {
-                       if( save[q] != randnum)
+                    int randnum = number.GetNumber(1,noofquest);
 
-                        {
-                            save[i] = randnum;
+                    randomList.Add(randnum);
 
-                        }
-                    }
+                    //for (int q = 0; q < save.Length; q++)
+                    //{
+                    //   if( save[q] != randnum)
+
+                    //    {
+                    //        save[i] = randnum;
+
+                    //    }
+                    //}
 
 
 
@@ -67,10 +72,11 @@ namespace Com.Chaitanya.Porjects.MockAssessment
 
 
                 // iterating the save array and called the question id which matches the array with questionid.
-                for( int p = 0; p < save.Length;p++)
+                for( int p = 0; p < randomList.Count;p++)
                 {
                     int seqnum = p + 1;
-                    string s= getQuestionById(save[p].ToString());
+                    int quesid = randomList[p];
+                    string s= getQuestionById(quesid.ToString());
                     Console.WriteLine(seqnum +"." + s);
 
 
