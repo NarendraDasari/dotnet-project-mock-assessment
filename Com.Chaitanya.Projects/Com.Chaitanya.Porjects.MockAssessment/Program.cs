@@ -63,8 +63,6 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                         i--;
                     }
                    
-                   
-
                     //for (int q = 0; q < save.Length; q++)
                     //{
                     //   if( save[q] != randnum)
