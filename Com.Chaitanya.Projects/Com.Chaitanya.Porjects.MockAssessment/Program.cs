@@ -15,13 +15,10 @@ namespace Com.Chaitanya.Porjects.MockAssessment
         {
             Console.WriteLine("Thank you taking a Mock test with us today. \nPlease Proceed with the instructions on the screen.\n");
             Console.WriteLine("Do you want to start the test? (YES/QUIT):");
+
             string choice = Console.ReadLine();
-            if (choice.ToLower() == "y" || choice.ToLower() == "yes")
+            do
             {
-                //Console.WriteLine("Please wait while we retrive the question........");
-
-
-
                 QuestionRepository repo = new QuestionRepository();
                 itemList = repo.GetQuestions();
 
@@ -43,17 +40,17 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                 // Save the unique questions items into an array or List Object.
 
                 // print the unique question result Object.
-               // int[] save = new int[5];
+                // int[] save = new int[5];
                 List<int> randomList = new List<int>();
+                int noofquest = itemList.Count;
 
 
-                for (int i = 0; i <10; i++)
+                for (int i = 0; i < 10; i++)
                 {
-                    int noofquest = itemList.Count;
                     RandomNumberManager number = new RandomNumberManager();
-                    int randnum = number.GetNumber(1,noofquest);
+                    int randnum = number.GetNumber(1, noofquest);
 
-                    if(randomList.Contains(randnum) == false)
+                    if (randomList.Contains(randnum) == false)
                     {
                         randomList.Add(randnum);
                     }
@@ -62,7 +59,7 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                         //Console.WriteLine("found duplicate. So re-trying this {0} iteration.", i);
                         i--;
                     }
-                   
+
                     //for (int q = 0; q < save.Length; q++)
                     //{
                     //   if( save[q] != randnum)
@@ -76,22 +73,29 @@ namespace Com.Chaitanya.Porjects.MockAssessment
 
 
                 }
-                
+
 
 
                 // iterating the save array and called the question id which matches the array with questionid.
-                for( int p = 0; p < randomList.Count;p++)
+                for (int p = 0; p < randomList.Count; p++)
                 {
                     int seqnum = p + 1;
                     int quesid = randomList[p];
-                    string s= getQuestionById(quesid.ToString());
-                    Console.WriteLine(seqnum +"." + s);
+                    string s = getQuestionById(quesid.ToString());
+                    Console.WriteLine(seqnum + "." + s);
 
 
 
                 }
 
+
+                Console.WriteLine("Do you want to re-take the test: (Yes/Quit)");
+                choice = Console.ReadLine();
+
+
             }
+            while (choice.ToLower() == "y" || choice.ToLower() == "yes");
+
         }
 
         private static string getQuestionById(string quesid)
@@ -115,9 +119,13 @@ namespace Com.Chaitanya.Porjects.MockAssessment
             return questionText;
 
         }
-      
 
-          
-
-        }
     }
+
+    
+
+
+
+
+}
+
