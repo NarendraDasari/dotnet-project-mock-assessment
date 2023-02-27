@@ -2,6 +2,8 @@
 using Com.Chaitanya.Data.Repository;
 using Com.Chaitanya.Models;
 using Com.Chaitanya.Utils;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Com.Chaitanya.Porjects.MockAssessment
@@ -13,9 +15,14 @@ namespace Com.Chaitanya.Porjects.MockAssessment
 
         static void Main(string[] args)
         {
+            
+            string assesmblyPath = Directory.GetParent(AppContext.BaseDirectory).FullName;
+            AppSettingsBuilder settings = new AppSettingsBuilder(assesmblyPath);
+            string noOfQuestions = settings.GetValueBykey("noOfQuestions");
+
+
             Console.WriteLine("Thank you taking a Mock test with us today. \nPlease Proceed with the instructions on the screen.\n");
             Console.WriteLine("Do you want to start the test? (YES/QUIT):");
-
             string choice = Console.ReadLine();
             do
             {
@@ -121,11 +128,5 @@ namespace Com.Chaitanya.Porjects.MockAssessment
         }
 
     }
-
-    
-
-
-
-
 }
 
