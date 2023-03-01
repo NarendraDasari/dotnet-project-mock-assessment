@@ -4,6 +4,7 @@ using Com.Chaitanya.Models;
 using Com.Chaitanya.Utils;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Com.Chaitanya.Porjects.MockAssessment
@@ -63,7 +64,7 @@ namespace Com.Chaitanya.Porjects.MockAssessment
                     }
                     else
                     {
-                        //Console.WriteLine("found duplicate. So re-trying this {0} iteration.", i);
+                        
                         i--;
                     }
 
@@ -81,21 +82,37 @@ namespace Com.Chaitanya.Porjects.MockAssessment
 
                 }
 
-
+                Console.WriteLine("Displaying 1 of 4 pages:");
 
                 // iterating the save array and called the question id which matches the array with questionid.
+                List<Item> displayQuestionList = new List<Item>();
                 for (int p = 0; p < randomList.Count; p++)
                 {
-                    int seqnum = p + 1;
+                    
                     int quesid = randomList[p];
-                    string s = getQuestionById(quesid.ToString());
-                    Console.WriteLine(seqnum + "." + s);
+                    
+                    
+                   
+                    Item obj = getQuestionById(quesid.ToString());
+                    displayQuestionList.Add(obj);
+
+
+
+                   //Console.WriteLine(seqnum + "." + s);
 
 
 
                 }
 
+                List<Item> pageItems = new List<Item>();
 
+
+
+                filterPageQuestions(displayQuestionList,1,3);
+
+                printPage();
+
+               
                 Console.WriteLine("Do you want to re-take the test: (Yes/Quit)");
                 choice = Console.ReadLine();
 
@@ -104,8 +121,40 @@ namespace Com.Chaitanya.Porjects.MockAssessment
             while (choice.ToLower() == "y" || choice.ToLower() == "yes");
 
         }
+        private static List<Item> filterPageQuestions(List<Item> totalPrintableQuestions,int start,int end)
+        {
 
-        private static string getQuestionById(string quesid)
+            List<Item> pageList = new List<Item>();
+
+           // start = start - 1;
+            for(int a=start-1;a<=end;a++)
+            {
+                Item obj = totalPrintableQuestions.ElementAt(a);
+
+                pageList.Add(obj);
+
+            }
+
+
+
+            return pageList;
+        }
+
+
+        private static void printPage(List<Item> dques)
+        {
+            for (int x = 0; x < dques.Count; x++)
+            {
+                int seqnum = x + 1;
+                Item printElement = dques.ElementAt(x);
+                Console.WriteLine(seqnum + "." + printElement.Name);
+
+
+            }
+
+        }
+
+        private static Item getQuestionById(string quesid)
         {
 
             string questionText = "";
@@ -117,13 +166,19 @@ namespace Com.Chaitanya.Porjects.MockAssessment
 
                 if (obj.Id == quesid)
                 {
-                    questionText = obj.Name;
+                    // questionText = obj.Name;
                     //Console.WriteLine(x +"." + "{0}", obj.Name);
-                    break;
+                    //break;
+                    return obj;
                 }
+                
             }
 
-            return questionText;
+            return null;
+
+
+
+           // return questionText;
 
         }
 
