@@ -104,15 +104,25 @@ namespace Com.Chaitanya.Porjects.MockAssessment
 
                 }
 
-                List<Item> pageItems = new List<Item>();
+                List<Item> pageItems = filterPageQuestions(displayQuestionList, 0, 2);
+                printPage(pageItems);
+
+                Console.WriteLine("Displaying page 2 of 4:");
+
+
+                List<Item> secondPage=filterPageQuestions(displayQuestionList, 3, 5);
+                printPage(secondPage);
+
+                Console.WriteLine("Displaying page 3 of 4:");
+                List<Item> thirdPage= filterPageQuestions(displayQuestionList, 6, 8);
+                printPage(thirdPage);
+
+                Console.WriteLine("Displaying page 4 of 4:");
+                List<Item> fourthPage = filterPageQuestions(displayQuestionList, 9, displayQuestionList.Count-1);
+                printPage(fourthPage);
 
 
 
-                filterPageQuestions(displayQuestionList,1,3);
-
-                printPage();
-
-               
                 Console.WriteLine("Do you want to re-take the test: (Yes/Quit)");
                 choice = Console.ReadLine();
 
@@ -127,7 +137,7 @@ namespace Com.Chaitanya.Porjects.MockAssessment
             List<Item> pageList = new List<Item>();
 
            // start = start - 1;
-            for(int a=start-1;a<=end;a++)
+            for(int a=start;a<=end;a++)
             {
                 Item obj = totalPrintableQuestions.ElementAt(a);
 
